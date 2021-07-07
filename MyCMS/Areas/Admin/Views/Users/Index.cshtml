@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataLayer.Models.User>
+@{
+    ViewData["Title"] = "لیست کاربران";
+    int counter = 0;
+}
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> لیست کاربران </h3></header>
+    <ul>
+        <table class="table table-bordered text-center">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ایمیل</th>
+                <th scope="col">کلمه عبور</th>
+                <th scope="col">نوع حساب</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@(++counter)</th>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@((item.Role==1)?"ادمین":"کاربر عادی")</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger"
+                           asp-controller="" asp-action="" asp-route-userId="@item.UserId">حذف</a>
+                        <a class="btn btn-sm btn-warning"
+                           asp-controller="" asp-action="" asp-route-userId="@item.UserId">ویرایش</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </ul>
+</section>

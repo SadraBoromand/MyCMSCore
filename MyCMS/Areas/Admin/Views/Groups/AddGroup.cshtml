@@ -1,0 +1,31 @@
+﻿@model DataLayer.Models.PageGroup
+
+@{
+    ViewData["Title"] = "افزودن گروه";
+}
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> افزودن گروه جدید </h3></header>
+    <ul style="padding: 20px">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="AddGroup">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="GroupTitle" class="control-label"></label>
+                        <input asp-for="GroupTitle" class="form-control" />
+                        <span asp-validation-for="GroupTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="افزودن" class="btn btn-success btn-lg btn-block" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ul>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

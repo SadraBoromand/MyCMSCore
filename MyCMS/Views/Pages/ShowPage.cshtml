@@ -1,0 +1,158 @@
+﻿
+@using DataLayer.Convertor
+@using DataLayer.Models
+@model DataLayer.Models.Page
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">خانه </a></li>
+    <li class="breadcrumb-item"><a href="#">اخبار </a></li>
+    <li class="breadcrumb-item">@*<a href="#"> @Model.PageGroup.GroupTitle  </a>*@</li>
+    <li class="breadcrumb-item active">@Model.Title </li>
+</ul>
+
+<section class="single-news border-radius">
+    <header>
+        <h2>
+            @Model.Title
+        </h2>
+        <span> <i class="fa fa-calendar"></i> انتشار : @Model.CreateDate.ToShamsi()</span>
+    </header>
+    <article>
+        <img class="img-thumbnail" style="width: 100%;margin: 0 0 30px 0" src="/images/@Model.Image" alt="@Model.Image" />
+        <p class="badge" style="background: #666EE8; color: #ffffff;border-radius: 3px">
+            <span> تعداد بازدید</span>
+            @Model.Visit
+        </p>
+        <p>
+            <label asp-for="ShortDescription"></label>
+            <br />
+            @Model.ShortDescription
+        </p>
+        <hr />
+        <p>
+            <label asp-for="Text"></label>
+            <br />
+            @Model.Text
+        </p>
+    </article>
+</section>
+
+<div class="keywords border-radius">
+    @foreach (var item in Model.Tags.Split('-'))
+    {
+        <a href=""> @item </a>
+    }
+</div>
+
+
+<section class="comment-layer">
+    <header> <i class="fa fa-comments"></i><h5> دیدگاه کاربران </h5><span> 25 دیدگاه </span> </header>
+    <ul id="lstComment">
+    </ul>
+
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h6> شما هم دیدگاه خود را ارسال کنید </h6>
+        <div class="comment-form">
+            <div>
+                <input id="name" placeholder=" نام و نام خانوادگی" required="true" type="text">
+                <input id="email" placeholder=" ایمیل خود را وارد نمایید " required="true" type="email">
+                <input id="website" placeholder=" سایت خود را وارد نمایید " type="url">
+            </div>
+            <textarea id="comment" placeholder=" متن دیدگاه"> </textarea>
+            <button class="btn btn-block btn-success" onclick="btnSave()">
+                ثبت دیدگاه ارزشمند شما
+            </button>
+        </div>
+    }
+    else
+    {
+        <div class="alert comment-form alert-warning">
+            <h1>برای نظر دادن ابتدا وارد سایت شوید</h1>
+        </div>
+    }
+</section>
+
+@section Scripts
+{
+    <script>
+        @{
+            var commend = new PageComment()
+            {
+                PageId = 1,
+                CreateDate = DateTime.Now,
+                Email = "sas@dsd",
+                Name = "",
+                Comment = "",
+                WebSite = ""
+            };
+        }
+        $.getJSON("/Comment/GetAllComments?id=@Model.PageId",
+            (res) => {
+                $.each(res,
+                    (key, val) => {
+                        var item = '<li>' +
+                            '<img src="/images/thumb.png">' +
+                            '<div>' +
+                            '<span> ' +
+                            val.name +
+                            ' </span>' +
+                            ' <span> ' +
+                            val.createDate +
+                            ' </span>' +
+                            '</div>' +
+                            '<p>' +
+                            val.comment +
+                            '</p>' +
+                            '</li>';
+                        $("#lstComment").append(item);
+                    });
+            });
+
+        function btnSave() {
+            $.ajax({
+                url: "/Comment/AddComment",
+                type: "get",
+                data: {
+                    pageId: @Model.PageId,
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    webSite: $("#website").val(),
+                    comment: $("#comment").val()
+                }
+            }).done((res) => {
+                alert("نظر شما ثبت شد");
+                $("#name").val("");
+                $("#email").val("");
+                $("#website").val("");
+                $("#comment").val("");
+                refreshComments(res);
+            });
+        }
+
+        function refreshComments(res) {
+            $.each(res, (key, val) => {
+                var item = '<li>' +
+                    '<img src="/images/thumb.png">' +
+                    '<div>' +
+                    '<span> ' +
+                    val.name +
+                    ' </span>' +
+                    ' <span> ' +
+                    val.createDate +
+                    ' </span>' +
+                    '</div>' +
+                    '<p>' +
+                    val.comment +
+                    '</p>' +
+                    '</li>';
+                $("#lstComment").append(item);
+            });
+        }
+    </script>
+}

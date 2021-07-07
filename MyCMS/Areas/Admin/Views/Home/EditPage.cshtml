@@ -1,0 +1,77 @@
+﻿@model DataLayer.ViewModels.Page.AddEditPage
+
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> ویرایش پست </h3></header>
+    <ul style="padding: 20px">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="EditPage" enctype="multipart/form-data">
+                    <input asp-for="PageId" type="hidden" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="GroupId" class="control-label"></label>
+                        <select class="form-control">
+                            @foreach (var item in Model.PageGroups)
+                            {
+                                <option name="GroupId" value="@item.GroupId">@item.GroupTitle</option>
+                            }
+                        </select>
+                        <span asp-validation-for="GroupId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ShortDescription" class="control-label"></label>
+                        <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                        <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Text" class="control-label"></label>
+                        <textarea rows="5" asp-for="Text" class="form-control"></textarea>
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="ShowInSlider" />
+                                نمایش در
+                                @Html.DisplayNameFor(model => model.ShowInSlider)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">تصویر فعلی</label>
+                        <input type="hidden" asp-for="Image"/>
+                        <img width="150" class="img-thumbnail" src="/images/@Model.Image" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="NewImage" type="file" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tags" class="control-label"></label>
+                        <input asp-for="Tags" class="form-control" />
+                        <span asp-validation-for="Tags" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="ویرایش پست" class="btn btn-success btn-block btn-lg" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ul>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,51 @@
+﻿@using DataLayer.Convertor
+@model IEnumerable<DataLayer.Models.Page>
+@{
+    ViewData["Title"] = "مدیریت";
+    int count = 0;
+}
+
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> پست ها </h3></header>
+    <ul>
+        <table class="table table-bordered text-center">
+            <thead>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-success" asp-controller="Home" asp-action="AddPage">افزودن پست جدید</a>
+                </td>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">تصویر</th>
+                <th scope="col">عنوان</th>
+                <th scope="col">تاریخ</th>
+                <th scope="col">بازدید</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@(++count)</th>
+                    <td>
+                        <img class="img-thumbnail" width="150" src="/images/@item.Image"/>
+                    </td>
+                    <td>@item.Title</td>
+                    <td>@item.CreateDate.ToShamsi()</td>
+                    <td>@item.Visit</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger"
+                           asp-controller="Home" asp-action="DeletePage" asp-route-pageId="@item.PageId" >حذف</a>
+                        <a class="btn btn-sm btn-warning" 
+                           asp-controller="Home" asp-action="EditPage" asp-route-pageId="@item.PageId">ویرایش</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </ul>
+</section>

@@ -1,0 +1,15 @@
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.deps.json
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.runtimeconfig.json
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.runtimeconfig.dev.json
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.dll
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\ref\DataLayer.dll
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.pdb
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.csproj.AssemblyReference.cache
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfo.cs
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.dll
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\ref\DataLayer.dll
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.pdb
+C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.genruntimeconfig.cache

@@ -1,0 +1,124 @@
+﻿@using DataLayer.Convertor
+@model IEnumerable<DataLayer.ViewModels.PageGroup.ShowPageGroup>
+@{
+    ViewData["Title"] = "گروه ها";
+    int count = 0;
+}
+
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> گروه ها </h3></header>
+    <ul>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        <a class="btn btn-success" asp-controller="Groups" asp-action="AddGroup">افزودن گروه جدید</a>
+                    </td>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">عنوان</th>
+                    <th scope="col">تعداد پست</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@(++count)</th>
+                        <td>@item.GroupTitle</td>
+                        <td>@item.Count</td>
+                        <td>
+                            <a class="btn btn-sm btn-danger"
+                               asp-controller="Groups" asp-action="DeleteGroup" asp-route-groupId="@item.GroupId">حذف</a>
+                            <a class="btn btn-sm btn-warning"
+                               asp-controller="Groups" asp-action="EditGroup" asp-route-groupId="@item.GroupId">ویرایش</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </ul>
+</section>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>عنوان گروه</td>
+            <td>تعداد پست های گروه</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ویرایش گروه</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label">عنوان گروه</label>
+                    <input id="GroupTitle" type="text" required="true" maxlength="50" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">خروج</button>
+                <button id="btnAddGroup" type="button" class="btn btn-success">افزودن</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $.getJSON("https://localhost:44341/admin/groups/GetAllGroup",
+            (res) => {
+                $.each(res, (key, val) => {
+                    var count = 1;
+                    var item = "<tr>" +
+                        "<td>" + count + "</td>" +
+                        "<td>" + val.groupTitle + "</td>" +
+                        "<td>" + val.count + "</td>" +
+                        "<td>" +
+                        '<button type="button" class="btn btn-warning btn-sm"  data-toggle="modal" data-target="#edit">' +
+                        'ویرایش' +
+                        '</button>' +
+                        + "</td>"
+                        + "</tr>";
+                    $("#tableBody").append(item);
+                    ++count;
+                });
+            });
+
+        $("#btnAddGroup").click(function () {
+            var ed = $("#GroupTitle");
+            if (ed.length>0 && ed!=null) {
+                $.ajax({
+                    url: "https://localhost:44341/admin/groups/AddGroup",
+                    type: "Post",
+                    data: {
+                        "groupTitle": $("#GroupTitle").val()
+                    },
+                    success: () => {
+                        alert("گروه با موفقیت اظافه شد");
+                    }
+                });
+            } else {
+                alert("اطلاعات صحیح نیست");
+            }
+            
+        });
+    </script>
+}

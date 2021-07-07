@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DataLayer.ViewModels.PageGroup.ShowPageGroup>
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-folder-open-o"></i> <h3> دسته بندی ها </h3></header>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a asp-controller="Pages" asp-action="ShowPageByGroupPage"
+                   asp-route-groupPageId="@item.GroupId"
+                   asp-route-groupTitle="@item.GroupTitle"> @item.GroupTitle  <span>@item.Count</span></a></li>
+        }
+    </ul>
+</section>

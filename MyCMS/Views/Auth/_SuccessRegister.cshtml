@@ -1,0 +1,19 @@
+﻿
+@model DataLayer.ViewModels.Auth.RegisterViewModel
+@{
+    ViewData["Title"] = "خوش آمدید";
+}
+<div class="alert alert-success text-right">
+    <h1 class="display-4">
+        کاربر @Model.Email ثبت نام شما با موفقیت انجام شد
+    </h1>
+    <hr />
+    <h3>
+        جهت مشاهده مقالات به صفحه اصلی مراجعه کنید
+    </h3>
+    <div class="text-center">
+        <a class="btn btn-outline-success" href="/">
+            بازگشت به صفحه اصلی
+        </a>
+    </div>
+</div>

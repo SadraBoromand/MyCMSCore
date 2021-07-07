@@ -1,0 +1,27 @@
+﻿
+@using DataLayer.Convertor
+@model IEnumerable<DataLayer.Models.Page>
+<!-- slider -->
+<div class="news-slider border-radius">
+    <div id="slider-one" class="owl-carousel">
+        @foreach (var item in Model)
+        {
+            <!-- each item -->
+            <div class="item">
+                <img src="/images/@item.Image">
+                <div class="left-side">
+                    <h2> <a asp-controller="Pages" asp-action="ShowPage"
+                            asp-route-pageId="@item.PageId" asp-route-title="@item.Title">@item.Title</a> </h2>
+                    <p>
+                        @item.ShortDescription
+                    </p>
+                    <span> <i class="fa fa-calendar"></i> انتشار : @item.CreateDate.ToShamsi()</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end each item -->
+        }
+    </div>
+    <a href="" class="news-archive"> <i class="icons icon-doc-1"></i> آرشیو کامل خبرها </a>
+</div>
+<!-- End slider -->

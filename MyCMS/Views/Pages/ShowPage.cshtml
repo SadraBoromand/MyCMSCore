@@ -81,17 +81,6 @@
 @section Scripts
 {
     <script>
-        @{
-            var commend = new PageComment()
-            {
-                PageId = 1,
-                CreateDate = DateTime.Now,
-                Email = "sas@dsd",
-                Name = "",
-                Comment = "",
-                WebSite = ""
-            };
-        }
         $.getJSON("/Comment/GetAllComments?id=@Model.PageId",
             (res) => {
                 $.each(res,
@@ -136,23 +125,21 @@
         }
 
         function refreshComments(res) {
-            $.each(res, (key, val) => {
                 var item = '<li>' +
                     '<img src="/images/thumb.png">' +
                     '<div>' +
                     '<span> ' +
-                    val.name +
+                    res.name +
                     ' </span>' +
                     ' <span> ' +
-                    val.createDate +
+                    res.createDate +
                     ' </span>' +
                     '</div>' +
                     '<p>' +
-                    val.comment +
+                    res.comment +
                     '</p>' +
                     '</li>';
                 $("#lstComment").append(item);
-            });
         }
     </script>
 }

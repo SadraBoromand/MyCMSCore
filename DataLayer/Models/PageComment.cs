@@ -35,7 +35,7 @@ namespace DataLayer.Models
         public string Comment { get; set; }
 
         [Display(Name = "تاریخ ثبت")]
-        public DateTime CreateDate { get; set; }
+        public string CreateDate { get; set; }
 
 
         //navigation Property

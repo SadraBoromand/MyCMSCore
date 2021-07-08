@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataLayer.Convertor;
 using DataLayer.Models;
 using DataLayer.Repositories;
 
@@ -28,7 +29,7 @@ namespace MyCMS.Controllers
             var commentAdd = new PageComment()
             {
                 PageId = int.Parse(pageId),
-                CreateDate = DateTime.Now,
+                CreateDate = DateTime.Now.ToShamsi(),
                 Email = email,
                 Name = name,
                 WebSite = webSite,

@@ -1,0 +1,71 @@
+﻿@using DataLayer.ViewModels.Comments
+
+@{
+    ViewData["Title"] = "مدیریت نظرات";
+}
+
+<section class="category-section border-radius">
+    <header><i class="fa fa-home"></i> <h3> لیست نظرات </h3></header>
+    <ul>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">عنوان خبر</th>
+                    <th scope="col">نام نویسنده</th>
+                    <th scope="col">ایمیل</th>
+                    <th scope="col">تاریخ</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="tbl">
+            </tbody>
+        </table>
+    </ul>
+</section>
+
+@section Scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            setData();
+        });
+
+        function setData() {
+            $.getJSON("/Admin/Comments/GetAllComments",
+                (res) => {
+                    var counter = 1;
+                    $.each(res,
+                        (key, val) => {
+                            var itemComment = '<tr>' +
+                                '<td>' + counter + '</td>' +
+                                '<td>' + val.pageTitle + '</td>' +
+                                '<td>' + val.name + '</td>' +
+                                '<td>' + val.email + '</td>' +
+                                '<td>' + val.createDate + '</td>' +
+                                '<td>' +
+                                '<a class="btn btn-sm btn-info" onClick="$("#tbl").clear()" href="">مشاهده</a>&nbsp;' +
+                                '<a class="btn btn-sm btn-danger" onClick="deleteItem(' + val.commentId +')">حذف</a>' +
+                                '</td>' +
+                                '</tr>';
+
+                            ++counter;
+                            $("#tbl").append(itemComment);
+                        });
+                });
+
+        }
+
+        function deleteItem(id) {
+            $.ajax({
+                url: "/Admin/Comments/Delete?id=" + id,
+                type:"get"
+            }).done(() => {
+                $(document).reload();
+                setData();
+            });
+        }
+
+    </script>
+}

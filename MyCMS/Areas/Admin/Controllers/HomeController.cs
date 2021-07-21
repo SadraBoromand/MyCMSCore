@@ -23,9 +23,9 @@ namespace MyCMS.Areas.Admin.Controllers
             _pageGroupRepository = pageGroupRepository;
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public IActionResult Index()
         {
-            return View(await _pageRepository.GetAllPages());
+            return View(_pageRepository.GetAllPages());
         }
 
         #region Page CRUD

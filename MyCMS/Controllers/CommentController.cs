@@ -20,7 +20,7 @@ namespace MyCMS.Controllers
 
         public JsonResult GetAllComments(int id)
         {
-            return Json(_commentRepository.getAllComments(id));
+            return Json(_commentRepository.getAllCommentsPage(id));
         }
 
         public JsonResult AddComment(string pageId, string name,

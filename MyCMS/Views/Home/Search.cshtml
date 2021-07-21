@@ -1,0 +1,41 @@
+﻿@using DataLayer.Convertor
+@model IEnumerable<DataLayer.Models.Page>
+@{
+    ViewData["Title"] = "جستجو";
+}
+
+<!-- search news -->
+<section class="last-news-section border-radius">
+    <header>
+        <i class="icons icon-doc-2"></i>  <h3>
+            جتسجوی عبارت :
+            <span class="text-primary">
+                @ViewData["search"]
+            </span>
+        </h3>
+    </header>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <img class="border-radius" src="/images/@item.Image">
+                <h2>
+                    <a asp-controller="Pages" asp-action="ShowPage"
+                       asp-route-pageId="@item.PageId" asp-route-title="@item.Title">
+                        @item.Title
+                    </a>
+                </h2>
+                <p>
+                    @item.ShortDescription
+                </p>
+                <span class="date-publish">
+                    <i class="fa fa-calendar"></i>
+                    انتشار : @item.CreateDate.ToShamsi()
+                </span>
+                <a asp-controller="Pages" asp-action="ShowPage"
+                   asp-route-pageId="@item.PageId" asp-route-title="@item.Title" class="more-link"><i class="icons icon-more"></i></a>
+            </li>
+        }
+    </ul>
+</section>
+<!-- End search news -->

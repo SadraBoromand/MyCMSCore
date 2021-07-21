@@ -18,11 +18,11 @@ namespace DataLayer.Services
         {
             this.db = db;
         }
-        public async Task<IEnumerable<Page>> GetAllPages()
+        public IEnumerable<Page> GetAllPages()
         {
-            return await db.Pages
+            return db.Pages
                 .OrderByDescending(p => p.PageId)
-                .ToListAsync();
+                .ToList();
         }
 
         public IEnumerable<Page> GetSliderPages()
@@ -101,6 +101,12 @@ namespace DataLayer.Services
             return db.Pages
                 .Take(4)
                 .OrderByDescending(p => p.Visit);
+        }
+
+        public IEnumerable<Page> SearchPage(string search)
+        {
+            return db.Pages
+                .Where(p => p.Title.Contains(search) || p.Tags.Contains(search));
         }
     }
 }

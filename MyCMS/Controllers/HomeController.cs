@@ -20,9 +20,15 @@ namespace MyCMS.Controllers
             _pageRepository = pageRepository;
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public IActionResult Index()
         {
-            return View(await _pageRepository.GetAllPages());
+            return View( _pageRepository.GetAllPages());
+        }
+
+        public IActionResult Search(string search)
+        {
+            ViewData["search"] = search;
+            return View(_pageRepository.SearchPage(search));
         }
 
         public IActionResult Privacy()

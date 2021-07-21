@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vGtF1/M/5qZLQKq/LC+4D/nUupvpXzHWkGmWMQpazk6zRqu7ArvrVD0eUhnfWILqC97anzBxfP+SzeYQVf4j2w==",
+  "dgSpecHash": "YlSRS5l6dSknAdstIij+hAS/1h4vyFNlUoDakx1HQXgwrC8SNfNPn63yAyfRHTEbDZa24yFB31dcbB8WzH7y8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\MyCMS\\MyCMS.csproj",
+  "projectFilePath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\MyCMS\\MyCMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SADRA\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\SADRA\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

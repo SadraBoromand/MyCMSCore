@@ -6025,11 +6025,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\DataLayer\\DataLayer.csproj",
+      "projectPath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\DataLayer\\DataLayer.csproj",
       "packagesPath": "C:\\Users\\SADRA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\DataLayer\\obj\\",
+      "outputPath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

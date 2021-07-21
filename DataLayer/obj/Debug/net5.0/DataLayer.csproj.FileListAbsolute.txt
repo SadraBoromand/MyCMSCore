@@ -13,3 +13,18 @@ C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.dll
 C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\ref\DataLayer.dll
 C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.pdb
 C:\Users\SADRA\Desktop\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.genruntimeconfig.cache
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.deps.json
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.runtimeconfig.json
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.runtimeconfig.dev.json
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.dll
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\ref\DataLayer.dll
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\bin\Debug\net5.0\DataLayer.pdb
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.csproj.AssemblyReference.cache
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfoInputs.cache
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.AssemblyInfo.cs
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.csproj.CoreCompileInputs.cache
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.dll
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\ref\DataLayer.dll
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.pdb
+D:\Larn\ASP.NET Core\MyCMSCore\DataLayer\obj\Debug\net5.0\DataLayer.genruntimeconfig.cache

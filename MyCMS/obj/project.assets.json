@@ -7330,11 +7330,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\MyCMS\\MyCMS.csproj",
+      "projectUniqueName": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\MyCMS\\MyCMS.csproj",
       "projectName": "MyCMS",
-      "projectPath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\MyCMS\\MyCMS.csproj",
+      "projectPath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\MyCMS\\MyCMS.csproj",
       "packagesPath": "C:\\Users\\SADRA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\MyCMS\\obj\\",
+      "outputPath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\MyCMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -7357,8 +7357,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\SADRA\\Desktop\\MyCMSCore\\DataLayer\\DataLayer.csproj"
+            "D:\\Larn\\ASP.NET Core\\MyCMSCore\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "D:\\Larn\\ASP.NET Core\\MyCMSCore\\DataLayer\\DataLayer.csproj"
             }
           }
         }

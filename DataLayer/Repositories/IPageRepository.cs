@@ -7,18 +7,19 @@ using DataLayer.Models;
 
 namespace DataLayer.Repositories
 {
-   public interface IPageRepository
-   {
-       Task<IEnumerable<Page>> GetAllPages();
-       IEnumerable<Page> GetSliderPages();
-       IEnumerable<Page> ShowPageByGroupPage(int groupPageId);
-       Page GetPageById(int pageId);
-       void AddVisit(int pageId);
-       bool InsertPage(Page page);
-       bool UpdatePage(Page page);
-       bool DeletePage(Page page);
-       void DeletePage(int pageId);
+    public interface IPageRepository
+    {
+        IEnumerable<Page> GetAllPages();
+        IEnumerable<Page> SearchPage(string search);
+        IEnumerable<Page> GetSliderPages();
+        IEnumerable<Page> ShowPageByGroupPage(int groupPageId);
+        Page GetPageById(int pageId);
+        void AddVisit(int pageId);
+        bool InsertPage(Page page);
+        bool UpdatePage(Page page);
+        bool DeletePage(Page page);
+        void DeletePage(int pageId);
 
-       IEnumerable<Page> GetMoreVisitPage();
-   }
+        IEnumerable<Page> GetMoreVisitPage();
+    }
 }
